@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="text-success">Quản Lý Tuyển Sinh</h1>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h4>Điểm chuẩn hội đồng:</h4>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input id="minScore" class="form-control" type="number" placeholder="Nhập Điểm">
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                        <h4>Thí sinh:</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <form class="form-inline">
+                            <label class="ml-3">Cột A:</label>
+                            <input class="ml-1 form-control" type="number" id="testerScoreA" placeholder="Nhập điểm">
+                            <label class="ml-4">Cột B:</label>
+                            <input class="ml-1 form-control" type="number" id="testerScoreB" placeholder="Nhập điểm">
+                            <label class="ml-3">Cột C:</label>
+                            <input class="ml-1 form-control" type="number" id="testerScoreC" placeholder="Nhập điểm">
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-inline">
+                            <label style="margin-left: 200px;">
+                                <h6>Khu Vực:</h6>
+                            </label>
+                            <input class="ml-1 form-control" type="text" id="locationBonus" placeholder="Nhập khu vực">
+                            <label class="ml-4">
+                                <h6>Đối Tượng:</h6>
+                            </label>
+                            <input class="ml-1 form-control" type="number" id="testerBonus"
+                                placeholder="Nhập đối tượng">
+
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <button type="submit" class="btn btn-success" onclick="passOrFail(event)">Kết Quả</button>
+            </form>
+        </div>
+    </div>
+    <div id="footerPassFail" class="card-footer d-none">
+        <p style="font-size: 16px;">
+            <span id="passFailOutput">0</span>
+        </p>
+    </div>
+    </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-success">Tính Tiền Điện</h1>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Tên</label>
+                            <input type="text" id="userName" class="form-control" placeholder="Nhập tên">
+                        </div>
+                        <div class="form-group">
+                            <label>số kW</label>
+                            <input type="number" id="powerUsage" class="form-control" placeholder="Nhập kW">
+                        </div>
+
+                        <button type="submit" class="btn btn-success" onclick="powerBill(event)">Tính</button>
+                    </form>
+                </div>
+                <div id="footerPower" class="card-footer d-none">
+                    <p style="font-size: 16px;">
+                        <span id="powerOutput">0</span> <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-success">Tính Ngày Kề</h1>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Số tài khoản</label>
+                            <input type="text" id="stk" class="form-control" placeholder="Nhập STK">
+                        </div>
+                        <label>Loại khách hàng</label>
+                        <ul>
+                            <li>
+                                <input type="radio" name="selector" id="household">
+                                <label for="household">Nhà dân</label>
+
+                            </li>
+
+                            <li>
+                                <input type="radio" name="selector" id="business">
+                                <label for="business">Doanh nghiệp</label>
+                                
+                            </li>
+                        </ul>
+
+
+                        <div class="form-group">
+                            <label>Số kênh cơ bản</label>
+                            <input type="number" id="basicLink" class="form-control" placeholder="Nhập số kênh">
+                        </div>
+                        <div class="form-group">
+                            <label>Số kênh cao cấp</label>
+                            <input type="number" id="advancedLink" class="form-control" placeholder="Nhập số kênh">
+                        </div>
+                        <button type="submit" class="btn btn-success" onclick="cableCalc(event)">Tính tiền</button>
+                    </form>
+                </div>
+                <div id="footerCable" class="card-footer d-none">
+                    <p style="font-size: 16px;">
+                        Tài khoản: <span id="stkOutput">0</span> <br>
+                        Số tiền cần thanh toán: <span id="moneyOutput">0</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
